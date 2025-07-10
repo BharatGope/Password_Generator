@@ -200,5 +200,13 @@ try:
     if(strenghth != 0):
         password = generate_password(length, strenghth)
         print(f"Generated Password: {password}\n")
+        # Ask user to save or not
+        save_to_file = input("Do you want to save the password to a .txt file? (yes / no): ").strip().lower()
+
+        if save_to_file == "yes":
+            with open("generated_password.txt", "w") as file:
+                file.write(password)
+            print("Password saved to 'generated_password.txt'.")
+
 except ValueError:
     print("Please enter a valid number.\n")
